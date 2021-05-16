@@ -412,7 +412,7 @@ JetBadge(text: &quot;With padding&quot;, padding: 10)
 </tr>
 <tr>
 <td>font</td>
-<td>text font</td>
+<td>Badge content font</td>
 <td>Font</td>
 <td>Font.footnote</td>
 </tr>
@@ -449,8 +449,10 @@ JetBadge(text: &quot;With padding&quot;, padding: 10)
 <td>-</td>
 </tr>
 </tbody></table>
-<h3 id='jetbadge-modifier'>JetBadge modifier</h3><div class="highlight"><pre class="highlight plaintext"><code>Text(&quot;Default / top trailing&quot;).badge(count: 5)
-Text(&quot;Top leading&quot;).badge(text: &quot;Hello&quot;, alignment: .topLeading)
+<h3 id='jetbadge-modifier-badge'>JetBadge modifier (.badge)</h3><div class="highlight"><pre class="highlight plaintext"><code>Text(&quot;Default / top trailing&quot;)
+  .badge(count: 5)
+Text(&quot;Top leading&quot;)
+  .badge(text: &quot;Hello&quot;, alignment: .topLeading)
 </code></pre></div>
 <p>Puts badge on top of another view.</p></p>
 
