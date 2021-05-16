@@ -33,7 +33,7 @@ text | Badge content | String | -
 backgroundColor | Badge background color | Color | Color.red
 textColor | Badge foreground color | Color | Color.white
 padding | Padding around text | CGFloat | 3
-font | text font | Font | Font.footnote
+font | Badge content font | Font | Font.footnote
 
 ### JetBadge with custom content
 ```Swift
@@ -48,10 +48,12 @@ padding | Padding around text | CGFloat | 3
 backgroundColor | Badge background color | Color | Color.red
 content | Custom content which will be placed inside badge | View | -
 
-### JetBadge modifier
+### JetBadge modifier (.badge)
 ```Swift
-Text("Default / top trailing").badge(count: 5)
-Text("Top leading").badge(text: "Hello", alignment: .topLeading)
+Text("Default / top trailing")
+  .badge(count: 5)
+Text("Top leading")
+  .badge(text: "Hello", alignment: .topLeading)
 ```
 Puts badge on top of another view.
 
