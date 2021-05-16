@@ -1,2 +1,63 @@
 ## Badge
-Tere
+```Swift
+        VStack(spacing: 30) {
+            JetBadge(backgroundColor: .blue) {
+                Text("Custom content")
+                    .foregroundColor(.yellow)
+                    .padding()
+            }
+            JetBadge(text: "Just badge")
+            JetBadge(text: "With padding", padding: 10)
+            Text("Default / top trailing").badge(count: 5)
+            Text("Top leading").badge(count: 5, alignment: .topLeading)
+            Text("Bottom leading").badge(count: 5, alignment: .bottomLeading)
+            Text("Bottom trailing").badge(count: 5, alignment: .bottomTrailing)
+            Text("Center").badge(count: 5, alignment: .center)
+            Text("TopCenter").badge(count: 5, alignment: .top)
+            Text("BottomCenter").badge(count: 5, color: .blue, alignment: .bottom)
+        }
+```
+<p align="center">
+  <img src="images/Badge.png" width="300"/>
+</p>
+
+### API
+### JetBadge
+```Swift
+JetBadge(text: "Default badge")
+JetBadge(text: "With padding", padding: 10)
+```
+Property | Description | Type | Default
+--------- | ------- | ----------- | -----------
+text | Badge content | String | -
+backgroundColor | Badge background color | Color | Color.red
+textColor | Badge foreground color | Color | Color.white
+padding | Padding around text | CGFloat | 3
+font | text font | Font | Font.footnote
+
+### JetBadge with custom content
+```Swift
+JetBadge(backgroundColor: .blue) {
+  Text("Custom content")
+      .foregroundColor(.yellow)
+}
+```
+Property | Description | Type | Default
+--------- | ------- | ----------- | -----------
+padding | Padding around text | CGFloat | 3
+backgroundColor | Badge background color | Color | Color.red
+content | Custom content which will be placed inside badge | View | -
+
+### JetBadge modifier
+```Swift
+Text("Default / top trailing").badge(count: 5)
+Text("Top leading").badge(text: "Hello", alignment: .topLeading)
+```
+Puts badge on top of another view.
+
+Property | Description | Type | Default
+--------- | ------- | ----------- | -----------
+text | Badge content, can not be used when count is used | String | -
+count | Badge content, can not be used when text is used | Int | -
+color | Badge background color | Color | Color.white
+alignment | Where should the badge be positioned | Alignment | Alignment.topTrailing

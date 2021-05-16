@@ -631,3 +631,9 @@ html, body {
 .copy-clipboard:hover {
   opacity: 0.8;
 }
+
+.content > table {
+  width: calc(50% - 50px);
+  display: table;
+  margin-left: 25px;
+}
