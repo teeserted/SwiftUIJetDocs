@@ -16,7 +16,7 @@
         }
 </code></pre></div>
 <p align="center">
-  <img src="images/Badge.png" width="300"/>
+    <img src="/images/Badge-77adf9e6.png" width="300" alt="" />
 </p>
 <h3 id='api'>API</h3><h3 id='jetbadge'>JetBadge</h3><div class="highlight"><pre class="highlight plaintext"><code>JetBadge(text: "Default badge")
 JetBadge(text: "With padding", padding: 10)
