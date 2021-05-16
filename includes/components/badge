@@ -1,2 +1,132 @@
-<h2 id='badge'>Badge</h2>
-<p>Tere</p>
+<h2 id='badge'>Badge</h2><div class="highlight"><pre class="highlight plaintext"><code>        VStack(spacing: 30) {
+            JetBadge(backgroundColor: .blue) {
+                Text("Custom content")
+                    .foregroundColor(.yellow)
+                    .padding()
+            }
+            JetBadge(text: "Just badge")
+            JetBadge(text: "With padding", padding: 10)
+            Text("Default / top trailing").badge(count: 5)
+            Text("Top leading").badge(count: 5, alignment: .topLeading)
+            Text("Bottom leading").badge(count: 5, alignment: .bottomLeading)
+            Text("Bottom trailing").badge(count: 5, alignment: .bottomTrailing)
+            Text("Center").badge(count: 5, alignment: .center)
+            Text("TopCenter").badge(count: 5, alignment: .top)
+            Text("BottomCenter").badge(count: 5, color: .blue, alignment: .bottom)
+        }
+</code></pre></div>
+<p align="center">
+  <img src="images/Badge.png" width="300"/>
+</p>
+<h3 id='api'>API</h3><h3 id='jetbadge'>JetBadge</h3><div class="highlight"><pre class="highlight plaintext"><code>JetBadge(text: "Default badge")
+JetBadge(text: "With padding", padding: 10)
+</code></pre></div>
+<table><thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+<th>Type</th>
+<th>Default</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>text</td>
+<td>Badge content</td>
+<td>String</td>
+<td>-</td>
+</tr>
+<tr>
+<td>backgroundColor</td>
+<td>Badge background color</td>
+<td>Color</td>
+<td>Color.red</td>
+</tr>
+<tr>
+<td>textColor</td>
+<td>Badge foreground color</td>
+<td>Color</td>
+<td>Color.white</td>
+</tr>
+<tr>
+<td>padding</td>
+<td>Padding around text</td>
+<td>CGFloat</td>
+<td>3</td>
+</tr>
+<tr>
+<td>font</td>
+<td>text font</td>
+<td>Font</td>
+<td>Font.footnote</td>
+</tr>
+</tbody></table>
+<h3 id='jetbadge-with-custom-content'>JetBadge with custom content</h3><div class="highlight"><pre class="highlight plaintext"><code>JetBadge(backgroundColor: .blue) {
+  Text("Custom content")
+      .foregroundColor(.yellow)
+}
+</code></pre></div>
+<table><thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+<th>Type</th>
+<th>Default</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>padding</td>
+<td>Padding around text</td>
+<td>CGFloat</td>
+<td>3</td>
+</tr>
+<tr>
+<td>backgroundColor</td>
+<td>Badge background color</td>
+<td>Color</td>
+<td>Color.red</td>
+</tr>
+<tr>
+<td>content</td>
+<td>Custom content which will be placed inside badge</td>
+<td>View</td>
+<td>-</td>
+</tr>
+</tbody></table>
+<h3 id='jetbadge-modifier'>JetBadge modifier</h3><div class="highlight"><pre class="highlight plaintext"><code>Text("Default / top trailing").badge(count: 5)
+Text("Top leading").badge(text: "Hello", alignment: .topLeading)
+</code></pre></div>
+<p>Puts badge on top of another view.</p>
+
+<table><thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+<th>Type</th>
+<th>Default</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>text</td>
+<td>Badge content, can not be used when count is used</td>
+<td>String</td>
+<td>-</td>
+</tr>
+<tr>
+<td>count</td>
+<td>Badge content, can not be used when text is used</td>
+<td>Int</td>
+<td>-</td>
+</tr>
+<tr>
+<td>color</td>
+<td>Badge background color</td>
+<td>Color</td>
+<td>Color.white</td>
+</tr>
+<tr>
+<td>alignment</td>
+<td>Where should the badge be positioned</td>
+<td>Alignment</td>
+<td>Alignment.topTrailing</td>
+</tr>
+</tbody></table>
