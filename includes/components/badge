@@ -19,6 +19,7 @@
     <img src="/images/Badge-77adf9e6.png" width="300" alt="" />
 </p>
 <h3 id='api'>API</h3><h3 id='jetbadge'>JetBadge</h3><div class="highlight"><pre class="highlight plaintext"><code>JetBadge(text: "Default badge")
+
 JetBadge(text: "With padding", padding: 10)
 </code></pre></div>
 <table><thead>
@@ -94,6 +95,7 @@ JetBadge(text: "With padding", padding: 10)
 </tbody></table>
 <h3 id='jetbadge-modifier-badge'>JetBadge modifier (.badge)</h3><div class="highlight"><pre class="highlight plaintext"><code>Text("Default")
   .badge(count: 5)
+
 Text("Top leading")
   .badge(text: "Hello", alignment: .topLeading)
 </code></pre></div>
