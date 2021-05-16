@@ -92,7 +92,7 @@ JetBadge(text: "With padding", padding: 10)
 <td>-</td>
 </tr>
 </tbody></table>
-<h3 id='jetbadge-modifier-badge'>JetBadge modifier (.badge)</h3><div class="highlight"><pre class="highlight plaintext"><code>Text("Default / top trailing")
+<h3 id='jetbadge-modifier-badge'>JetBadge modifier (.badge)</h3><div class="highlight"><pre class="highlight plaintext"><code>Text("Default")
   .badge(count: 5)
 Text("Top leading")
   .badge(text: "Hello", alignment: .topLeading)
