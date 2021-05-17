@@ -363,10 +363,28 @@
         JetAccordionItem(title: &quot;Header 1&quot;, content: &quot;Lorem ipsum ...&quot;),
         JetAccordionItem(title: &quot;Header 2&quot;, content: &quot;Lorem ipsum ...&quot;)
     ]
+    @State var expandedViewIdx: Int? = 0
     var body: some View {
         VStack {
             JetAccordion(data: data)
             Spacer()
+            HStack {
+                Button(action: {
+                    expandedViewIdx = 0
+                }){
+                    Text(&quot;Open 1st&quot;)
+                }
+                Button(action: {
+                    expandedViewIdx = 1
+                }){
+                    Text(&quot;Open 2nd&quot;)
+                }
+                Button(action: {
+                    expandedViewIdx = nil
+                }, label: {
+                    Text(&quot;Close&quot;)
+                })
+            }
         }
         .padding()
     }
@@ -376,12 +394,7 @@
 <p align="center">
     <img src="images/Accordion-f6edca00.webp" alt="" />
 </p></p>
-<h3 id='api'>API</h3><div class="highlight"><pre class="highlight plaintext"><code>let data = [
-        JetAccordionItem(title: &quot;Header 1&quot;, content: &quot;Lorem ipsum ...&quot;),
-        JetAccordionItem(title: &quot;Header 2&quot;, content: &quot;Lorem ipsum ...&quot;)
-]
-JetAccordion(data: data)
-</code></pre></div><h3 id='jetaccordion'>JetAccordion</h3>
+<h3 id='api'>API</h3><h3 id='jetaccordion'>JetAccordion</h3>
 <table><thead>
 <tr>
 <th>Property</th>
@@ -396,8 +409,31 @@ JetAccordion(data: data)
 <td>[JetAccordionItem]</td>
 <td>-</td>
 </tr>
+<tr>
+<td>expandedViewIdx (optional)</td>
+<td>Index of the expanded view, all items are collapsed when expandedViewIdx == nil</td>
+<td>Binding&lt;Int?&gt;</td>
+<td>nil</td>
+</tr>
+<tr>
+<td>header (optional)</td>
+<td>View that will be displayed instead of default header.</td>
+<td>(item: JetAccordionItem, isExpanded: Bool) -&gt; View</td>
+<td>EmptyView()</td>
+</tr>
+<tr>
+<td>body (optional)</td>
+<td>View that will be displayed instead of default body.</td>
+<td>(item: JetAccordionItem, isExpanded: Bool) -&gt; View</td>
+<td>EmptyView()</td>
+</tr>
 </tbody></table>
-<h3 id='jetaccordionitem'>JetAccordionItem</h3>
+<div class="highlight"><pre class="highlight plaintext"><code>let data = [
+        JetAccordionItem(title: &quot;Header 1&quot;, content: &quot;Lorem ipsum ...&quot;),
+        JetAccordionItem(title: &quot;Header 2&quot;, content: &quot;Lorem ipsum ...&quot;)
+]
+JetAccordion(data: data)
+</code></pre></div><h3 id='jetaccordionitem'>JetAccordionItem</h3>
 <table><thead>
 <tr>
 <th>Property</th>
@@ -417,42 +453,6 @@ JetAccordion(data: data)
 <td>Text that will be displayed in JetAccordion body</td>
 <td>String</td>
 <td>-</td>
-</tr>
-</tbody></table>
-<div class="highlight"><pre class="highlight plaintext"><code>JetAccordion(data: data, header: { item, isExpanded in
-    HStack {
-        Image(systemName: isExpanded ? &quot;pencil&quot; : &quot;scribble.variable&quot;)
-        Text(&quot;Custom content (item.content)&quot;)
-        Spacer()
-    }
-    .contentShape(Rectangle()) // Makes whole HStack tappable
-})
-</code></pre></div><h3 id='jetaccordion-with-custom-header-body'>JetAccordion with custom header/body</h3>
-<table><thead>
-<tr>
-<th>Property</th>
-<th>Description</th>
-<th>Type</th>
-<th>Default</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>data</td>
-<td>Array of items to display in accordion format</td>
-<td>[JetAccordionItem]</td>
-<td>-</td>
-</tr>
-<tr>
-<td>header</td>
-<td>View that will be displayed instead of default header. <br/> Receives 2 parameters: item: JetAccordionItem and isExpanded: Bool</td>
-<td>View</td>
-<td>EmptyView()</td>
-</tr>
-<tr>
-<td>body</td>
-<td>View that will be displayed instead of default body. <br/> Receives 2 parameters: item: JetAccordionItem and isExpanded: Bool</td>
-<td>View</td>
-<td>EmptyView()</td>
 </tr>
 </tbody></table></p>
 
@@ -476,9 +476,8 @@ JetAccordion(data: data)
 <p align="center">
     <img src="images/Badge-77adf9e6.png" width="300" alt="" />
 </p>
-<h3 id='api'>API</h3><h3 id='jetbadge'>JetBadge</h3><div class="highlight"><pre class="highlight plaintext"><code>JetBadge(text: &quot;Default badge&quot;)</p>
-
-<p>JetBadge(text: &quot;With padding&quot;, padding: 10)
+<h3 id='api'>API</h3><h3 id='jetbadge'>JetBadge</h3><div class="highlight"><pre class="highlight plaintext"><code>JetBadge(text: &quot;Default badge&quot;)
+JetBadge(text: &quot;With padding&quot;, padding: 10)
 </code></pre></div>
 <table><thead>
 <tr>
@@ -533,13 +532,13 @@ JetAccordion(data: data)
 </tr>
 </thead><tbody>
 <tr>
-<td>padding</td>
+<td>padding (optional)</td>
 <td>Padding around text</td>
 <td>CGFloat</td>
 <td>3</td>
 </tr>
 <tr>
-<td>backgroundColor</td>
+<td>backgroundColor (optional)</td>
 <td>Badge background color</td>
 <td>Color</td>
 <td>Color.red</td>
@@ -552,9 +551,8 @@ JetAccordion(data: data)
 </tr>
 </tbody></table>
 <h3 id='jetbadge-modifier-badge'>JetBadge modifier (.badge)</h3><div class="highlight"><pre class="highlight plaintext"><code>Text(&quot;Default&quot;)
-  .badge(count: 5)</p>
-
-<p>Text(&quot;Top leading&quot;)
+  .badge(count: 5)
+Text(&quot;Top leading&quot;)
   .badge(text: &quot;Hello&quot;, alignment: .topLeading)
 </code></pre></div>
 <p>Puts badge on top of another view.</p></p>
