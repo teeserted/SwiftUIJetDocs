@@ -1,19 +1,19 @@
-<h2 id='badge'>Badge</h2><div class="highlight"><pre class="highlight plaintext"><code>        VStack(spacing: 30) {
-            JetBadge(backgroundColor: .blue) {
-                Text("Custom content")
-                    .foregroundColor(.yellow)
-                    .padding()
-            }
-            JetBadge(text: "Just badge")
-            JetBadge(text: "With padding", padding: 10)
-            Text("Default / top trailing").badge(count: 5)
-            Text("Top leading").badge(count: 5, alignment: .topLeading)
-            Text("Bottom leading").badge(count: 5, alignment: .bottomLeading)
-            Text("Bottom trailing").badge(count: 5, alignment: .bottomTrailing)
-            Text("Center").badge(count: 5, alignment: .center)
-            Text("TopCenter").badge(count: 5, alignment: .top)
-            Text("BottomCenter").badge(count: 5, color: .blue, alignment: .bottom)
-        }
+<h2 id='badge'>Badge</h2><div class="highlight"><pre class="highlight plaintext"><code>VStack(spacing: 30) {
+    JetBadge(backgroundColor: .blue) {
+        Text("Custom content")
+            .foregroundColor(.yellow)
+            .padding()
+    }
+    JetBadge(text: "Just badge")
+    JetBadge(text: "With padding", padding: 10)
+    Text("Default / top trailing").badge(count: 5)
+    Text("Top leading").badge(count: 5, alignment: .topLeading)
+    Text("Bottom leading").badge(count: 5, alignment: .bottomLeading)
+    Text("Bottom trailing").badge(count: 5, alignment: .bottomTrailing)
+    Text("Center").badge(count: 5, alignment: .center)
+    Text("TopCenter").badge(count: 5, alignment: .top)
+    Text("BottomCenter").badge(count: 5, color: .blue, alignment: .bottom)
+}
 </code></pre></div>
 <p align="center">
     <img src="/images/Badge-77adf9e6.png" width="300" alt="" />

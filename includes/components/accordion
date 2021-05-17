@@ -1,0 +1,97 @@
+<h2 id='accordion'>Accordion</h2><div class="highlight"><pre class="highlight plaintext"><code>struct ContentView: View {
+    let data = [
+        JetAccordionItem(title: "Header 1", content: "Lorem ipsum ..."),
+        JetAccordionItem(title: "Header 2", content: "Lorem ipsum ...")
+    ]
+    var body: some View {
+        VStack {
+            JetAccordion(data: data)
+            Spacer()
+        }
+        .padding()
+    }
+}
+</code></pre></div>
+<p>Accordion is used to show and hide content. Collapsed element will animate the height from 0 to its original height.
+<p align="center">
+    <img src="/images/Accordion-f6edca00.webp" alt="" />
+</p></p>
+<h3 id='api'>API</h3><div class="highlight"><pre class="highlight plaintext"><code>let data = [
+        JetAccordionItem(title: "Header 1", content: "Lorem ipsum ..."),
+        JetAccordionItem(title: "Header 2", content: "Lorem ipsum ...")
+]
+JetAccordion(data: data)
+</code></pre></div><h3 id='jetaccordion'>JetAccordion</h3>
+<table><thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+<th>Type</th>
+<th>Default</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>data</td>
+<td>Array of items to display in accordion format</td>
+<td>[JetAccordionItem]</td>
+<td>-</td>
+</tr>
+</tbody></table>
+<h3 id='jetaccordionitem'>JetAccordionItem</h3>
+<table><thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+<th>Type</th>
+<th>Default</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>title</td>
+<td>Text that will be displayed in JetAccordion header</td>
+<td>String</td>
+<td>-</td>
+</tr>
+<tr>
+<td>content</td>
+<td>Text that will be displayed in JetAccordion body</td>
+<td>String</td>
+<td>-</td>
+</tr>
+</tbody></table>
+<div class="highlight"><pre class="highlight plaintext"><code>JetAccordion(data: data, header: { item, isExpanded in
+    HStack {
+        Image(systemName: isExpanded ? "pencil" : "scribble.variable")
+        Text("Custom content \(item.content)")
+        Spacer()
+    }
+    .contentShape(Rectangle()) // Makes whole HStack tappable
+})
+</code></pre></div><h3 id='jetaccordion-with-custom-header-body'>JetAccordion with custom header/body</h3>
+<table><thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+<th>Type</th>
+<th>Default</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>data</td>
+<td>Array of items to display in accordion format</td>
+<td>[JetAccordionItem]</td>
+<td>-</td>
+</tr>
+<tr>
+<td>header</td>
+<td>View that will be displayed instead of default header. <br/> Receives 2 parameters: item: JetAccordionItem and isExpanded: Bool</td>
+<td>View</td>
+<td>EmptyView()</td>
+</tr>
+<tr>
+<td>body</td>
+<td>View that will be displayed instead of default body. <br/> Receives 2 parameters: item: JetAccordionItem and isExpanded: Bool</td>
+<td>View</td>
+<td>EmptyView()</td>
+</tr>
+</tbody></table>
