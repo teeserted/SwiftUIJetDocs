@@ -1,0 +1,57 @@
+## Accordion
+```Swift
+struct ContentView: View {
+    let data = [
+        JetAccordionItem(title: "Header 1", content: "Lorem ipsum ..."),
+        JetAccordionItem(title: "Header 2", content: "Lorem ipsum ...")
+    ]
+    var body: some View {
+        VStack {
+            JetAccordion(data: data)
+            Spacer()
+        }
+        .padding()
+    }
+}
+```
+Accordion is used to show and hide content. Collapsed element will animate the height from 0 to its original height.
+<p align="center">
+    <%= image_tag('Accordion.webp') %>
+</p>
+
+### API
+```Swift
+let data = [
+        JetAccordionItem(title: "Header 1", content: "Lorem ipsum ..."),
+        JetAccordionItem(title: "Header 2", content: "Lorem ipsum ...")
+]
+JetAccordion(data: data)
+```
+### JetAccordion
+Property | Description | Type | Default
+--------- | ------- | ----------- | -----------
+data | Array of items to display in accordion format | [JetAccordionItem] | -
+
+### JetAccordionItem
+Property | Description | Type | Default
+--------- | ------- | ----------- | -----------
+title | Text that will be displayed in JetAccordion header | String | -
+content | Text that will be displayed in JetAccordion body | String | -
+
+```Swift
+JetAccordion(data: data, header: { item, isExpanded in
+    HStack {
+        Image(systemName: isExpanded ? "pencil" : "scribble.variable")
+        Text("Custom content \(item.content)")
+        Spacer()
+    }
+    .contentShape(Rectangle()) // Makes whole HStack tappable
+})
+```
+### JetAccordion with custom header/body
+Property | Description | Type | Default
+--------- | ------- | ----------- | -----------
+data | Array of items to display in accordion format | [JetAccordionItem] | -
+header | View that will be displayed instead of default header. <br/> Receives 2 parameters: item: JetAccordionItem and isExpanded: Bool | View | EmptyView()
+body | View that will be displayed instead of default body. <br/> Receives 2 parameters: item: JetAccordionItem and isExpanded: Bool | View | EmptyView()
+

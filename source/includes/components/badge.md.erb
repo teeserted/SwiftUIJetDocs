@@ -1,21 +1,21 @@
 ## Badge
 ```Swift
-        VStack(spacing: 30) {
-            JetBadge(backgroundColor: .blue) {
-                Text("Custom content")
-                    .foregroundColor(.yellow)
-                    .padding()
-            }
-            JetBadge(text: "Just badge")
-            JetBadge(text: "With padding", padding: 10)
-            Text("Default / top trailing").badge(count: 5)
-            Text("Top leading").badge(count: 5, alignment: .topLeading)
-            Text("Bottom leading").badge(count: 5, alignment: .bottomLeading)
-            Text("Bottom trailing").badge(count: 5, alignment: .bottomTrailing)
-            Text("Center").badge(count: 5, alignment: .center)
-            Text("TopCenter").badge(count: 5, alignment: .top)
-            Text("BottomCenter").badge(count: 5, color: .blue, alignment: .bottom)
-        }
+VStack(spacing: 30) {
+    JetBadge(backgroundColor: .blue) {
+        Text("Custom content")
+            .foregroundColor(.yellow)
+            .padding()
+    }
+    JetBadge(text: "Just badge")
+    JetBadge(text: "With padding", padding: 10)
+    Text("Default / top trailing").badge(count: 5)
+    Text("Top leading").badge(count: 5, alignment: .topLeading)
+    Text("Bottom leading").badge(count: 5, alignment: .bottomLeading)
+    Text("Bottom trailing").badge(count: 5, alignment: .bottomTrailing)
+    Text("Center").badge(count: 5, alignment: .center)
+    Text("TopCenter").badge(count: 5, alignment: .top)
+    Text("BottomCenter").badge(count: 5, color: .blue, alignment: .bottom)
+}
 ```
 <p align="center">
     <%= image_tag('Badge.png', width: '300') %>
